@@ -1,0 +1,56 @@
+/* background color = #1e1e2a  */
+/* graph color = #27293d */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    margin-top: 50px;
+    background-color: #1e1e2a;
+    font-family: 'Poppins', sans-serif;
+}
+#info-box{
+    color: white;
+    border-radius: 10px;
+    margin: 50px 40px ;
+    background-color: #27293d;
+    box-shadow:  rgba(110, 110, 110, 0.8);
+    max-height: 300px;
+}
+#info-box h2{
+    margin-top: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: solid 1px rgba(110, 110, 110, 0.8);
+}
+
+#chart-box{
+    border-radius: 10px;
+    margin: 50px 0px;
+    background-color: #27293d;
+    box-shadow:  rgba(110, 110, 110, 0.8);
+    padding: 0 10px 10px 0;
+    max-height: 300px;
+}
+
+#chart-box h2 {
+    color:white;
+    font-weight: 100;
+    margin: 0 0 10 0px;
+}
+#chart-box h3 {
+    color:rgb(167, 164, 164);
+    font-weight: 100;
+    margin: 0;
+}
+#chart-header{
+    padding: 15px 15px 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#chart-1{
+    margin-right: 100px;
+}
+
+.navbar{
+    background-color: #27293d;
+    border-bottom: 2px solid #dd4ecc;
+}
