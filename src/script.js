@@ -36,3 +36,4 @@ new Chart(document.getElementById("chart-1").getContext('2d')
     }
   });
 
+
