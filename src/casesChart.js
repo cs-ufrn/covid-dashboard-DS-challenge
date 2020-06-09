@@ -49,6 +49,7 @@ const loadCasesBrazil = async () => {
                 }]
             },
             options: {
+                responsive : true,
                 legend:{
                     display: false,
                 },  
@@ -69,7 +70,7 @@ const loadCasesBrazil = async () => {
                             color: "rgba(122, 122, 122, 0)",
                         },
                         ticks:{
-                            display: false,
+                            display: true,
                         }
                     }]
                 }

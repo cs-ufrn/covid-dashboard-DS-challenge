@@ -123,11 +123,3 @@ body{
     margin: 0;
 }
 
-.chart-box-brazil{
-    border-radius: 10px;
-    margin: 50px 0px;
-    background-color: #27293d;
-    box-shadow:  rgba(110, 110, 110, 0.8);
-    padding: 0 10px 10px 0;
-    max-height: 300px;
-}
