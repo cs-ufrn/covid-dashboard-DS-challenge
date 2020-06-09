@@ -76,17 +76,33 @@
             </div>
         </div>
 
+        <div class="row justify-content-center pt-4">
+            <h1 class="text-light m-2">Casos de COVID-19 no Brasil</h1>
+        </div>
+
+        <div class="row">
+            <!-- <div class="col-md-3 info-box">
+                <h2>Casos acumulados</h2>
+                <p> Lorem ipsum.</p>
+            </div> -->
+            <div class="col">
+                <div class="chart-box-brazil">
+                    <canvas id="chart-brazil" class="pb-5 pt-0" height="100px"></canvas>
+                </div>
+            </div>
+        </div>
+
         <div id="Natal" class="row justify-content-center pt-4">
             <h1 class="text-light m-2">Infográfico</h1>
         </div>
 
         <div class="row">
-            <div id="info-box" class="col-md-3">
+            <div class="col-md-3 info-box">
                 <h2>Isolamento Social %</h2>
                 <p> O gráfico ao lado compara os valores, em porcentagem, de alguns bairros da cidade de Natal-RN.</p>
             </div>
             <div id="charts" class="col-md-8">
-                <div id="chart-box">
+                <div class="chart-box">
                     <div id="chart-header">
                         <h3>Isolamento social por bairro</h3>
                         <h2>Isolamento Social %</h2>
@@ -121,6 +137,7 @@
     <script src="./src/script.js"></script>
     <script src="./src/api.js"></script>
     <script src="./src/scroll.js"></script>
+    <script src="./src/casesChart.js"></script>
     <!-- bootstrap files -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

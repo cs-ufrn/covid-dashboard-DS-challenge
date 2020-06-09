@@ -7,67 +7,19 @@ body{
     background-color: #1e1e2a;
     font-family: 'Poppins', sans-serif;
 }
-#info-box{
-    color: white;
-    border-radius: 10px;
-    margin: 50px 40px ;
-    background-color: #27293d;
-    box-shadow:  rgba(110, 110, 110, 0.8);
-    max-height: 300px;
-}
-#info-box h2{
-    margin-top: 10px;
-    text-align: center;
-    padding-bottom: 5px;
-    border-bottom: solid 1px rgba(110, 110, 110, 0.8);
-}
+/*
+============================================= IDs ============================================================
+*/
 
-#chart-box{
-    border-radius: 10px;
-    margin: 50px 0px;
-    background-color: #27293d;
-    box-shadow:  rgba(110, 110, 110, 0.8);
-    padding: 0 10px 10px 0;
-    max-height: 300px;
-}
-
-#chart-box h2 {
-    color:white;
-    font-weight: 100;
-    margin: 0 0 10 0px;
-}
-#chart-box h3 {
-    color:rgb(167, 164, 164);
-    font-weight: 100;
-    margin: 0;
-}
 #chart-header{
     padding: 15px 15px 0;
     background-color: rgba(0, 0, 0, 0);
 }
 
-#chart-1{
+#chart-1, #chart-brazil{
     margin-right: 100px;
 }
 
-.navbar{
-    background-color: #27293d;
-    border-bottom: 2px solid #dd4ecc;
-}
-
-.value-card{
-    border-top: 2px solid #dd4ecc ;
-    border-radius: 10px;
-    background-color: #27293d;
-    box-shadow:  rgba(110, 110, 110, 0.8);
-    margin-top: 25px;
-    min-height: 170px;
-    text-align: center;
-}
-.value-card:hover{
-    border-bottom: 2px solid #dd4ecc ;
-    border-right: 2px solid #dd4ecc;
-}
 #recuperados-card{
     border-top: 2px solid lightskyblue ;
 }
@@ -92,6 +44,28 @@ body{
     border-right: 2px solid lightgreen;
 
 }
+/*
+============================================= Classes ====================================================
+*/
+.navbar{
+    background-color: #27293d;
+    border-bottom: 2px solid #dd4ecc;
+}
+
+.value-card{
+    border-top: 2px solid #dd4ecc ;
+    border-radius: 10px;
+    background-color: #27293d;
+    box-shadow:  rgba(110, 110, 110, 0.8);
+    margin-top: 25px;
+    min-height: 170px;
+    text-align: center;
+}
+.value-card:hover{
+    border-bottom: 2px solid #dd4ecc ;
+    border-right: 2px solid #dd4ecc;
+}
+
 .value-card h2{
     color: white;
     border-bottom: solid 2px grey;
@@ -111,4 +85,49 @@ body{
 
 .card-title {
     margin-left: 40px;
+}
+
+.info-box{
+    color: white;
+    border-radius: 10px;
+    margin: 50px 40px ;
+    background-color: #27293d;
+    box-shadow:  rgba(110, 110, 110, 0.8);
+    max-height: 300px;
+}
+
+.info-box h2{
+    margin-top: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: solid 1px rgba(110, 110, 110, 0.8);
+}
+
+.chart-box{
+    border-radius: 10px;
+    margin: 50px 0px;
+    background-color: #27293d;
+    box-shadow:  rgba(110, 110, 110, 0.8);
+    padding: 0 10px 10px 0;
+    max-height: 300px;
+}
+
+.chart-box h2, .chart-box-brazil h2 {
+    color:white;
+    font-weight: 100;
+    margin: 0 0 10 0px;
+}
+.chart-box h3, .chart-box-brazil h3 {
+    color:rgb(167, 164, 164);
+    font-weight: 100;
+    margin: 0;
+}
+
+.chart-box-brazil{
+    border-radius: 10px;
+    margin: 50px 0px;
+    background-color: #27293d;
+    box-shadow:  rgba(110, 110, 110, 0.8);
+    padding: 0 10px 10px 0;
+    max-height: 300px;
 }
