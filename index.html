@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -86,8 +86,14 @@
                 <p> Lorem ipsum.</p>
             </div> -->
             <div class="col">
-                <div class="chart-box-brazil">
-                    <canvas id="chart-brazil" class="pb-5 pt-0" height="100px"></canvas>
+                
+                <div id="charts">
+                    <div class="chart-box">
+                        <div id="chart-header">
+                            <h2>Casos confirmados COVID-19</h2>
+                        </div>
+                        <canvas id="chart-brazil" height="60px"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

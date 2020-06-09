@@ -27,9 +27,12 @@ const loadCasesBrazil = async () => {
         var eixoX = [], eixoY = [], colors = [];
 
         for (var i = 0; i < casos.length; i++) {
-            eixoX.push(updateDate(casos[i].Date));
-            eixoY.push(casos[i].Cases);
-            colors.push(randomColorBrazil());
+            console.log(casos[i].Date);
+            if(new Date(casos[i].Date) > new Date('2020-02-18')){
+                eixoX.push(updateDate(casos[i].Date));
+                eixoY.push(casos[i].Cases);
+                colors.push('#dd4ecc');
+            }
         }
         const chartBrazil = document.querySelector("#chart-brazil").getContext('2d');
 
@@ -38,29 +41,35 @@ const loadCasesBrazil = async () => {
             data: {
                 labels: eixoX,
                 datasets: [{
-                    label: 'Quantidade de casos',
                     data: eixoY,
-                    backgroundColor: ['white'],
+                    backgroundColor: '#dd4ecc2e',
                     borderColor: colors,
-                    borderWidth: 1
+                    borderWidth: 1,
+                    pointBackgroundColor: '#dd4ecc'
                 }]
             },
             options: {
-                legend: { labels: { fontColor: 'orange' } },
+                legend:{
+                    display: false,
+                },  
                 title: {
-                    display: true,
-                    fontColor: 'blue',
-                    text: 'Casos de COVID-19 no Brasil'
+                    display: false,
                 },
                 scales: {
                     yAxes: [{
+                        gridLines: {
+                            color: "rgba(122, 122, 122, 0.30)",
+                        },
                         ticks: {
-                            fontColor: 'red'
+                            fontColor: 'grey'
                         }
                     }],
                     xAxes: [{
+                        gridLines: {
+                            color: "rgba(122, 122, 122, 0)",
+                        },
                         ticks:{
-                            fontColor: 'green'
+                            display: false,
                         }
                     }]
                 }

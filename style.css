@@ -108,7 +108,7 @@ body{
     margin: 50px 0px;
     background-color: #27293d;
     box-shadow:  rgba(110, 110, 110, 0.8);
-    padding: 0 10px 10px 0;
+    padding: 0px 10px 10px 30px;
     max-height: 300px;
 }
 
