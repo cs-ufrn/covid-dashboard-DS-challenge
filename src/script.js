@@ -1,3 +1,4 @@
+//------------------------------------------------------------//
 const randomColor = () => {
   const hex = (Math.random()*0xFFFFFF<<0).toString(16);
   return `#${hex}`;
@@ -36,4 +37,32 @@ new Chart(document.getElementById("chart-1").getContext('2d')
     }
   });
 
+  /* Request data Natal */
+  const apiNatal = 'https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&state=RN';
 
+  let casesNatal, deathsNatal, populationNatal;
+
+  let h3ConfirmedNatal = document.querySelector("#casos");
+  let h3DeathsNatal = document.querySelector("#obitos");
+  let h3PopulationNatal = document.querySelector("#population");
+
+  const loadDataNatal = async () =>{
+
+    const responseNatal = await axios.get(apiNatal);
+
+    for(var i=0; i< responseNatal.data.results.length;i++){
+      if(responseNatal.data.results[i].city == 'Natal'){
+        
+        casesNatal =responseNatal.data.results[i].confirmed;
+        deathsNatal = responseNatal.data.results[i].deaths;
+        populationNatal = responseNatal.data.results[i].estimated_population_2019;
+
+      }
+    }
+
+    h3ConfirmedNatal.textContent = casesNatal;
+    h3DeathsNatal.textContent = deathsNatal;
+    h3PopulationNatal.textContent = populationNatal;
+  }
+
+  loadDataNatal();

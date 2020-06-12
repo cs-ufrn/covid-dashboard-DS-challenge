@@ -28,91 +28,65 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#!"><i class="fas fa-chart-area fa-2x"></i></a>
+                    <a class="navbar-brand" href="index.html"><i class="fas fa-chart-area fa-2x"></i></a>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="#RN">Dados RN</a>
+                <li class="nav-item active"> <a class="nav-link" href="#">Natal</a>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="#Natal">Natal</a>
+                <li class="nav-item"> <a class="nav-link" href="./src/pages/RN/index.html">RN</a>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="#Brasil">Brasil</a>
+                <li class="nav-item"> <a class="nav-link" href="./src/pages/Brasil/index.html">Brasil</a>
                 </li>
             </ul>
         </div>
     </nav>
+ <!----------------------  casos   -------------->
     <div id="main" class="container">
 
         <div class="row justify-content-center pt-4">
             <h1 class="text-light">Casos</h1>
         </div>
-        <h2 class="card-title text-white mt-2" id="Brasil"> Brasil </h2>
+        <h2 class="card-title text-white mt-2" id="Brasil"> Natal </h2>
         <div class="row justify-content-around">
             <div id = "confirmados-card" class="value-card col-md-3 pt-3">
                 <h2>Confirmados</h2>
                 <h3 id="casos"></h3>
             </div>
-            <div id = "recuperados-card"class="value-card col-md-3 pt-3" >
-                <h2>Recuperados</h2>
-                <h3 id="recuperados"></h3>
-            </div>
             <div id="obitos-card" class="value-card col-md-3 pt-3">
                 <h2>Óbitos</h2>
                 <h3 id="obitos"></h3>
             </div>
-        </div>
 
-        <h2 id="RN" class="card-title text-white mt-3"> Rio Grande do Norte </h2>
-        <div class="row justify-content-around">
-            <div id = "confirmados-card" class="value-card col-md-3 pt-3">
-                <h2>Confirmados</h2>
-                <h3 id="casos-rn"></h3>
-            </div>
-            <div class="value-card col-md-3 pt-3">
-                <h2>Suspeitos</h2>
-                <h3 id="suspects-rn"></h3>
-            </div>
-            <div id="obitos-card" class="value-card col-md-3 pt-3">
-                <h2>Óbitos</h2>
-                <h3 id="obitos-rn"></h3>
+            <div id = "recuperados-card"class="value-card col-md-3 pt-3" >
+                <h2>Habitantes </h2>
+                <h3 id="population"></h3>
+                <p class="corp"><small>População estimada em 2019</small></p>
             </div>
         </div>
+    </div>
 
+    <!----------------------  Dados socioecônomicos  -------------->      
+    <div class="container">
         <div class="row justify-content-center pt-4">
-            <h1 class="text-light m-2">Evolução dos casos de COVID-19 no Brasil</h1>
+            <h1 class="text-light m-2">Dados socioecônomicos</h1>
         </div>
-
-        <div class="row">
-            <div class="col-md-3 info-box">
-                <h2>Evolução dos casos</h2>
-                <p> No gráfico ao lado é apresentado a evolução na quantidade de casos, cumulativos, no Brasil, tendo seu primeiro valor no dia 19/02 indo até o dia de hoje.</p>
+        <!----------------------  infográfico   -------------->
+        <div id="Natal" class="row justify-content-center pt-4">
+                <h1 class="text-light m-2">Infográfico</h1>
             </div>
+
+            <div class="row">
+                <div class="col-md-3 info-box">
+                    <h2>Isolamento Social %</h2>
+                    <p> O gráfico ao lado compara os valores, em porcentagem, de alguns bairros da cidade de Natal-RN.</p>
+                </div>
                 <div id="charts" class="col-md-8">
                     <div class="chart-box">
                         <div id="chart-header">
-                            <h3>Casos p/ dia no Brasil</h3>
-                            <h2>Casos confirmados COVID-19</h2>
+                            <h3>Isolamento social por bairro</h3>
+                            <h2>Isolamento Social %</h2>
                         </div>
-                        <canvas id="chart-brazil" height="80px"></canvas>
+                        <canvas id="chart-1" height="70px"></canvas>
                     </div>
-            </div>
-
-        </div>
-
-        <div id="Natal" class="row justify-content-center pt-4">
-            <h1 class="text-light m-2">Infográfico</h1>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3 info-box">
-                <h2>Isolamento Social %</h2>
-                <p> O gráfico ao lado compara os valores, em porcentagem, de alguns bairros da cidade de Natal-RN.</p>
-            </div>
-            <div id="charts" class="col-md-8">
-                <div class="chart-box">
-                    <div id="chart-header">
-                        <h3>Isolamento social por bairro</h3>
-                        <h2>Isolamento Social %</h2>
-                    </div>
-                    <canvas id="chart-1" height="70px"></canvas>
                 </div>
             </div>
         </div>
@@ -140,9 +114,6 @@
 
     <!-- Charts files -->
     <script src="./src/script.js"></script>
-    <script src="./src/api.js"></script>
-    <script src="./src/scroll.js"></script>
-    <script src="./src/casesChart.js"></script>
     <!-- bootstrap files -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

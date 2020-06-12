@@ -5,15 +5,6 @@ updateDate = (date) => {
     return newDate;
 }
 
-const randomColorBrazil = () => {
-    var hexBrazil = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += hexBrazil[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
 //===========================Chart=============================
 
 const apiBrazil = 'https://api.covid19api.com/country/brazil/status/confirmed';
@@ -28,7 +19,7 @@ const loadCasesBrazil = async () => {
 
         for (var i = 0; i < casos.length; i++) {
             console.log(casos[i].Date);
-            if(new Date(casos[i].Date) > new Date('2020-02-18')){
+            if(new Date(casos[i].Date) > new Date('2020-02-26')){
                 eixoX.push(updateDate(casos[i].Date));
                 eixoY.push(casos[i].Cases);
                 colors.push('#dd4ecc');

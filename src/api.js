@@ -14,21 +14,5 @@ const loadBrazilData = async () =>{
 
     }
 }
-const loadRNData = async () =>{
-    const response = await axios.get(api+'/uf/rn');
-
-    if(response.status === 200){
-        const casosConfirmados = document.getElementById('casos-rn');
-        const obitosConfirmados = document.getElementById('obitos-rn');
-        const curadosConfirmados = document.getElementById('suspects-rn');
-
-        casosConfirmados.textContent = response.data.cases;
-        obitosConfirmados.textContent = response.data.deaths;
-        curadosConfirmados.textContent = response.data.suspects;
-
-    }
-}
-
 
 loadBrazilData();
-loadRNData();
