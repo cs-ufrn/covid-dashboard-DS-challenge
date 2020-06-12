@@ -12,9 +12,6 @@ const loadCitys = async () => {
             const newOption = document.createElement('option');
             newOption.textContent = cidade.city;
             newOption.value = cidade.city;
-            newOption.addEventListener('click',(e) =>{
-                loadCitysCases(newOption.value);
-            });
             selectBox.appendChild(newOption);
         }
     }
@@ -51,46 +48,46 @@ const loadRNData = async () => {
 let cityChart = new Chart(document.getElementById("city-chart").getContext('2d'), {
     type: 'bar',
     data: {
-      labels: ["Casos Confirmados","Obitos"],
-      datasets: [{ 
-          data: [0,0],
-          label: "Casos Confirmados e Obitos",
-          backgroundColor:["#F11E1A9E","#D6D3DD"],
-          fill: true,
+        labels: ["Casos Confirmados","Obitos"],
+        datasets: [{ 
+            data: [500,500],
+            label: "Casos Confirmados e Obitos",
+            backgroundColor:["rgba(144, 238, 144,0.3)","rgba(245, 174, 174,0.3)"],
+            borderColor:['rgb(144, 238, 144)','rgb(245, 174, 174)'],
+            borderWidth: 1,
+            fill: false,
         }
-      ],
+        ],
     },
     options:{
+        responsive:true,
         legend:{
             display:false,
         },scales: {
-          xAxes: [{
-              gridLines: {
-                  color: "rgba(122, 122, 122, 0.25)",
-              },
-              ticks:{
+            xAxes: [{
+                gridLines: {
+                    color: "rgba(122, 122, 122, 0.25)",
+                },
+                ticks:{
+                beginAtZero:true,
                 display:false
-              }
-          }],
-          yAxes: [{
-              gridLines: {
-                  color: "rgba(0, 0, 0, 0)",
-              }   
-          }]
-      },
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    color: "rgba(122, 122, 122, 0.25)",
+                }   
+            }]
+        },
     }
-  });
+    });
 
 const attData = (chart,data) => {
     chart.data.datasets[0].data= data;
-
     chart.update();
 }
 
-const firstOption = document.getElementById('option-1');
-firstOption.addEventListener('click',(e) =>{
-    loadCitysCases('Natal');
-});
+
 
 loadCitys();
 loadRNData();
