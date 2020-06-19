@@ -1,3 +1,18 @@
+// ----------------- data -------------------------------
+const attribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+const natal = { ...natalNeighbors,  features: natalNeighbors.features.map((el) => { 
+  return { 
+    ...el, 
+    properties: {
+      ...el.properties, 
+      txIso: parseFloat((Math.random()*100).toFixed(2))
+    }
+  }}
+)};
+console.log(natal)
+
 //------------------------------------------------------------//
 const randomColor = () => {
   const hex = (Math.random()*0xFFFFFF<<0).toString(16);
@@ -7,32 +22,32 @@ new Chart(document.getElementById("chart-1").getContext('2d')
 , {
     type: 'bar',
     data: {
-      labels: ["Lagoa Azul","Planalto","Pajuçara","Alecrim","Cidade Alta","Tirol","Parque das Dunas", "Petrópolis","Barro Vermelho","Santos Reis","Redinha","Potengi","Nossa Sra. da Apresentação"],
-      datasets: [{ 
-          data: [43.60,37.60,41.60,43.70,41.90,53.00,42.20,44.10,44.60,67.90,44.30,45.60,46.40],
+      labels: natal.features.map((val) => val.properties.name),
+      datasets:  [{
+          data: natal.features.map((val) => val.properties.txIso),
           label: "Isolamento Social",
-          backgroundColor:["#F11E1A","#D6D3DD","#DEED51","#EE7E33","#D5C383","#229635","#e6e610","#bdc8ba","#7B68EE","#edeeb0","#e08f16","#0000FF","#d7b9f1"],
+          backgroundColor: natal.features.map((val) => getColor(val.properties.txIso)),
           fill: true,
         }
       ],
     },
     options:{
-        legend:{
-            display:false,
-        },scales: {
-          xAxes: [{
-              gridLines: {
-                  color: "rgba(122, 122, 122, 0.25)",
-              },
-              ticks:{
-                display:false
-              }
-          }],
-          yAxes: [{
-              gridLines: {
-                  color: "rgba(0, 0, 0, 0)",
-              }   
-          }]
+      legend:{
+          display:false,
+      },scales: {
+        xAxes: [{
+            gridLines: {
+                color: "rgba(122, 122, 122, 0.25)",
+            },
+            ticks:{
+              display:true
+            },
+        }],
+        yAxes: [{
+            gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            }   
+        }]
       },
     }
   });
@@ -66,3 +81,97 @@ new Chart(document.getElementById("chart-1").getContext('2d')
   }
 
   loadDataNatal();
+
+// ------------------Maps-------------------
+
+// Inicia a plotagem do mapa
+var map = L.map('mapid').setView([-5.80522,-35.20801], 11);
+var info = L.control();
+
+// Insere o mapa propriamente dito na biblioteca de plotagem
+const tiles = L.tileLayer(tileUrl, { attribution });
+tiles.addTo(map);
+
+// Cria info no gráfico
+info.onAdd = function (map) {
+  this._div = L.DomUtil.create('div', 'info');
+  this.update();
+  return this._div;
+};
+
+// Atualiza info quando mouse posicionado sobre bairro
+info.update = function (props) {
+  this._div.innerHTML = '<p>Taxa de isolamento social por bairro em %</p>' +  (props ?
+      '<b>' + props.name + '</b><br />' + props.txIso + '% de isolamento social'
+      : '');
+};
+// Adiciona o objeto info no plot
+info.addTo(map);
+
+// Plota mapa na div posicionada no index.html
+L.geoJSON(natal, {style: style, onEachFeature: onEachFeature}).addTo(map);
+
+// ------------------ Styling things ------------
+
+// Estiliza cada área demarcada no mapa
+function style(feature) {
+  return {
+      fillColor: getColor(feature.properties.txIso),
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7
+  };
+}
+
+//De acordo com a escala criada, posibilita plot agregado a noção de intensidade
+function getColor(d) {
+  return d > 100 ? '#800026' :
+    d > 80  ? '#BD0026' :
+    d > 60  ? '#E31A1C' :
+    d > 50  ? '#FC4E2A' :
+    d > 40   ? '#FD8D3C' :
+    d > 25   ? '#FEB24C' :
+    d > 15   ? '#FED976' :
+              '#FFEDA0';
+}
+
+// ------------- MouseOver Neighbor ---------
+
+// Carrega os eventos abaixo no plot
+function onEachFeature(feature, layer) {
+  layer.on({
+      mouseover: onMouseOver,
+      mouseout: onMouseOut,
+  });
+}
+
+// Repassa estilo criado para evento de mouseouver e atualiza o plot
+function onMouseOver(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+      weight: 4,
+      color: "rgb(121, 131, 237)",
+      dashArray: '',
+      fillOpacity: 0.7
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+  }
+  info.update(layer.feature.properties);
+}
+
+// Repassa estilo criado para evento de mouseout e atualiza o plot
+function onMouseOut(e) {
+  var layer = e.target;
+
+  layer.setStyle(style(layer.feature));
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+  }
+  info.update();
+}
