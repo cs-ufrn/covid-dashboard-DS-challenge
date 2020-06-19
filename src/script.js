@@ -11,7 +11,6 @@ const natal = { ...natalNeighbors,  features: natalNeighbors.features.map((el) =
     }
   }}
 )};
-console.log(natal)
 
 //------------------------------------------------------------//
 const randomColor = () => {
